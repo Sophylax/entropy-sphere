@@ -6,4 +6,4 @@ WORKDIR /usr/src/bot
 
 COPY . .
 
-CMD [ "python3", "app/main.py" ]
+CMD [ "sh", "deploy.sh" ]

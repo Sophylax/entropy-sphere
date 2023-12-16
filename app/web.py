@@ -27,3 +27,6 @@ def main():
 
     webServer.server_close()
     print("Server stopped.")
+
+if __name__ == "__main__":
+    main()

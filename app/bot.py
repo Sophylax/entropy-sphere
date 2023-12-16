@@ -24,3 +24,6 @@ async def on_message(message):
 
 def main():
     client.run(TOKEN)
+
+if __name__ == "__main__":
+    main()
