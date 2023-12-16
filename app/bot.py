@@ -14,13 +14,13 @@ async def on_ready():
     logging.info(f'We have logged in as {bot.user}')
     try:
         synced = await bot.tree.sync()
-        logging.info(f"Sync'd {len(synced)} commands.")
+        logging.warning(f"Sync'd {len(synced)} commands.")
     except Exception as e:
         logging.error(e)
 
 @bot.tree.command(name='hello')
 async def say_hello(interaction: discord.Interaction) -> None:
-    await interaction.response.send_message("Hello!")
+    await interaction.response.send_message("Hello!", silent=True)
 
 # @client.event
 # async def on_message(message):
@@ -32,5 +32,5 @@ async def say_hello(interaction: discord.Interaction) -> None:
 
 if __name__ == "__main__":
     bot_token = os.getenv('DISCORD_TOKEN')
-    logging.warn("=== RUNNING BOT ===")
+    logging.warning("=== RUNNING BOT ===")
     bot.run(bot_token)
