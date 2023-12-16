@@ -30,5 +30,7 @@ async def hello(interaction: discord.Interaction) -> None:
 #     if message.content.startswith('$hello'):
 #         await message.channel.send('Hello!')
 
-bot_token = os.getenv('DISCORD_TOKEN')
-bot.run(bot_token)
+if __name__ == "__main__":
+    bot_token = os.getenv('DISCORD_TOKEN')
+    print("=== RUNNING BOT ===")
+    bot.run(bot_token)
