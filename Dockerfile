@@ -6,4 +6,4 @@ WORKDIR /usr/src/bot
 
 COPY . .
 
-CMD [ "python3", "bot.py" ]
+CMD [ "python3", "main.py" ]

@@ -22,4 +22,5 @@ async def on_message(message):
         await message.channel.send(f'See you later, {message.author.display_name}!')
         return
 
-client.run(TOKEN)
+def main():
+    client.run(TOKEN)
