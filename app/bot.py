@@ -18,8 +18,8 @@ async def on_ready():
     except Exception as e:
         logging.error(e)
 
-@bot.tree.command()
-async def hello(interaction: discord.Interaction) -> None:
+@bot.tree.command(name='hello')
+async def say_hello(interaction: discord.Interaction) -> None:
     await interaction.response.send_message("Hello!")
 
 # @client.event
@@ -32,5 +32,5 @@ async def hello(interaction: discord.Interaction) -> None:
 
 if __name__ == "__main__":
     bot_token = os.getenv('DISCORD_TOKEN')
-    print("=== RUNNING BOT ===")
+    logging.warn("=== RUNNING BOT ===")
     bot.run(bot_token)
