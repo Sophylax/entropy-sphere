@@ -17,8 +17,8 @@ async def on_ready():
     except Exception as e:
         print(e)
 
-@bot.tree.command(name='hello')
-async def hello(interaction: discord.Interaction):
+@bot.tree.command()
+async def hello(interaction: discord.Interaction) -> None:
     await interaction.response.send_message("Hello!")
 
 # @client.event
