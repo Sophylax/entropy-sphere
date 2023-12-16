@@ -1,21 +1,22 @@
 import discord
 import os
-from discord.ext import commands
 
-# Set command prefix for the bot
-bot = commands.Bot(command_prefix='!')
+intents = discord.Intents.default()
+intents.message_content = True
 
-# Event listener for when the bot has switched from offline to online.
-@bot.event
+client = discord.Client(intents=intents)
+
+@client.event
 async def on_ready():
-    print(f'Logged in as {bot.user.name} (ID: {bot.user.id})')
-    print('------')
+    print(f'We have logged in as {client.user}')
 
-# Command to respond to "!hello"
-@bot.command(name='hello', help='Responds with Hello World!')
-async def hello(ctx):
-    await ctx.send('Hello World!')
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
 
-# Run the bot with the token from environment variable
+    if message.content.startswith('$hello'):
+        await message.channel.send('Hello!')
+
 bot_token = os.getenv('DISCORD_TOKEN')
-bot.run(bot_token)
+client.run(bot_token)
