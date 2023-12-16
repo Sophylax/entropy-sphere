@@ -1,10 +1,9 @@
+FROM python:3
 FROM gorialis/discord.py
 
-WORKDIR /app
-
-COPY requirements.txt ./
-RUN pip install -r requirements.txt
+RUN mkdir -p /usr/src/bot
+WORKDIR /usr/src/bot
 
 COPY . .
 
-CMD ["python", "bot.py"]
+CMD [ "python3", "bot.py" ]
