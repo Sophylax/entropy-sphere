@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Specify the command to run app
-CMD ["python", "./src/bot.py"]
+CMD ./launch.sh
